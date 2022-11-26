@@ -28,7 +28,7 @@ async def text_message(message:types.Message):
 async def download_youtube_video(url, message, bot):
     yt = YouTube(url)
     stream = yt.streams.filter(progressive=True, file_extension="mp4")
-    stream.get_highest_resolution().download(f"{message.chat.id}", f"{message.chat.id}_{yt.title}")
+    stream.get_by_resolution('480p').download(f"{message.chat.id}", f"{message.chat.id}_{yt.title}")
     with open(f"{message.chat.id}/{message.chat.id}_{yt.title}", "rb") as video:
         await bot.send_video(message.chat.id, video, caption="*Готово!*", parse_mode="Markdown")
         os.remove(f"{message.chat.id}/{message.chat.id}_{yt.title}")
