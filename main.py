@@ -3,7 +3,7 @@ import os
 from aiogram import *
 from pytube import YouTube
 
-bot = Bot("5885229538:AAErgF3u22W9B8ohN-UmUQ--Eigdg84jQGc")
+bot = Bot("TELEGRAM_BOT_TOKEN")
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=["start"])
