@@ -18,7 +18,7 @@ async def text_message(message:types.Message):
     chat_id = message.chat.id
     url = message.text
     yt = YouTube(url)
-    if message.text.startswith == "https://youtu.be/" or "https://youtube.com/" :
+    if message.text.contains("https://youtu.be/") or message.text.contains("https://youtube.com/") :
         await bot.send_message(chat_id, "Начинаю загрузку видео!")
         await download_youtube_video(url, message, bot)
     else:
